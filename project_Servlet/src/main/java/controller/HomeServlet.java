@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -70,6 +71,7 @@ public class HomeServlet extends HttpServlet {
 			String ketword = req.getParameter("search");
 			ListDao dao = new ListImpl();
 			List<ListVo> searchlist = dao.getSearch(ketword);
+			
 			req.setAttribute("list", searchlist); // 같은 list에 반환 해줌으로써 처리함
 			doGet(req, resp);
 		}
