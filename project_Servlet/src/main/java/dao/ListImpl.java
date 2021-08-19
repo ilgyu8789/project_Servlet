@@ -87,10 +87,9 @@ public class ListImpl implements ListDao {
 
 		try {
 			conn = getConnection();
-			String sql = "SELECT id, name, hp, tel" + " FROM phone_book " + " WHERE name LIKE ?";
+			String sql = "SELECT id, name, hp, tel FROM phone_book "+  "where name like ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%" + find + "%");
-
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Long id = rs.getLong(1);
@@ -106,8 +105,17 @@ public class ListImpl implements ListDao {
 
 				list.add(vo);
 			}
+
 		} catch (SQLException e) {
 
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (Exception e) {
+//				e.printStackTrace();
+			}
 		}
 		return list;
 	}

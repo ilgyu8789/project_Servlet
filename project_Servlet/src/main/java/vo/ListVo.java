@@ -41,6 +41,9 @@ public class ListVo {
 
 	@Override
 	public String toString() {
-		return "listVo [listName=" + listName + ", listHp=" + listHp + ", listTel=" + listTel + "]";
+		return "ListVo [listId=" + listId + ", listName=" + listName + ", listHp=" + listHp + ", listTel=" + listTel
+				+ "]";
 	}
+
+
 }

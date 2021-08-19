@@ -73,7 +73,8 @@ public class HomeServlet extends HttpServlet {
 			List<ListVo> searchlist = dao.getSearch(ketword);
 			
 			req.setAttribute("list", searchlist); // 같은 list에 반환 해줌으로써 처리함
-			doGet(req, resp);
+			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/home.jsp");
+			rd.forward(req, resp);
 		}
 	}
 
